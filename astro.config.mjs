@@ -3,6 +3,7 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+  site: 'https://ai-sitemap-generator.pages.dev',
   output: 'static',
   adapter: undefined,
   integrations: [react()],

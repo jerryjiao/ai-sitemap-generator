@@ -5,6 +5,9 @@ interface Props {
 }
 
 const { title = 'AI Sitemap Generator', description = 'Generate SEO-optimized sitemaps with AI-powered insights. Crawl any website, detect SEO issues, and export sitemap.xml files.' } = Astro.props;
+
+const siteUrl = (Astro.site ? Astro.site.href : 'https://ai-sitemap-generator.pages.dev').replace(/\/+$/, '');
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site || 'https://ai-sitemap-generator.pages.dev');
 ---
 
 <!doctype html>
@@ -19,7 +22,7 @@ const { title = 'AI Sitemap Generator', description = 'Generate SEO-optimized si
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:url" content={canonicalUrl.href} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="AI Sitemap Generator" />
 
@@ -29,7 +32,7 @@ const { title = 'AI Sitemap Generator', description = 'Generate SEO-optimized si
     <meta name="twitter:description" content={description} />
 
     <!-- Canonical -->
-    <link rel="canonical" href={Astro.url.href} />
+    <link rel="canonical" href={canonicalUrl.href} />
     <style is:global>
       @import "../styles/global.css";
     </style>
