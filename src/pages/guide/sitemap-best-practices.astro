@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Sitemap Best Practices for SEO — Priority, Changefreq & Common Mistakes';
+const description = 'Master sitemap best practices: how to set priority values, use changefreq correctly, handle large sitemaps, and avoid common mistakes that hurt your SEO.';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Sitemap Best Practices for SEO",
+  "description": description,
+  "author": { "@type": "Organization", "name": "AI Sitemap Generator" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Sitemap Generator",
+    "logo": { "@type": "ImageObject", "url": "https://ai-sitemap-generator.pages.dev/favicon.svg" }
+  },
+  "datePublished": "2025-01-20",
+  "dateModified": "2025-05-17",
+  "mainEntityOfPage": "https://ai-sitemap-generator.pages.dev/guide/sitemap-best-practices"
+};
+---
+
+<BaseLayout {title} {description}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <div class="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
+    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-[var(--color-background)]/80 border-b border-[var(--color-border)]/60 px-4 sm:px-6 py-3.5">
+      <div class="max-w-4xl mx-auto flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2 text-lg font-bold text-[var(--color-foreground)]">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          <span class="hidden sm:inline">AI Sitemap Generator</span>
+          <span class="sm:hidden">SitemapGen</span>
+        </a>
+        <a href="/tools/sitemap" class="text-sm font-medium bg-[var(--color-primary)] text-white px-4 py-1.5 rounded-lg hover:opacity-90 transition-opacity">
+          Launch Tool
+        </a>
+      </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 py-16">
+      <header class="mb-12">
+        <div class="text-sm text-[var(--color-muted-foreground)] mb-4">
+          <a href="/" class="hover:text-[var(--color-foreground)] transition-colors">Home</a>
+          <span class="mx-2">/</span>
+          <a href="/guide/sitemap-best-practices" class="hover:text-[var(--color-foreground)] transition-colors">Best Practices</a>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold leading-tight mb-4">Sitemap Best Practices for SEO</h1>
+        <p class="text-lg text-[var(--color-muted-foreground)]">How to set priority values, use changefreq correctly, handle large sitemaps, and avoid common mistakes.</p>
+      </header>
+
+      <div class="prose-container space-y-8 text-[var(--color-foreground)] leading-relaxed">
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Understanding Priority Values</h2>
+          <p class="text-[var(--color-muted-foreground)]">The <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-sm font-mono">&lt;priority&gt;</code> tag tells search engines how important a page is relative to other pages on your site. Values range from 0.0 to 1.0, with 1.0 being the highest.</p>
+          <p class="text-[var(--color-muted-foreground)] mt-4">Important: priority is <strong>relative</strong>, not absolute. A 1.0 on your site doesn't mean your page ranks above a competitor's 0.5 — it only affects how Google allocates crawl budget <em>within</em> your site.</p>
+
+          <div class="my-6 rounded-xl border border-[var(--color-border)] overflow-hidden">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-[var(--color-secondary)]">
+                  <th class="text-left p-4 font-semibold text-[var(--color-foreground)]">Priority</th>
+                  <th class="text-left p-4 font-semibold text-[var(--color-foreground)]">Use For</th>
+                </tr>
+              </thead>
+              <tbody class="text-[var(--color-muted-foreground)]">
+                <tr class="border-t border-[var(--color-border)]"><td class="p-4 font-mono font-bold text-[var(--color-primary)]">1.0</td><td class="p-4">Homepage</td></tr>
+                <tr class="border-t border-[var(--color-border)]"><td class="p-4 font-mono font-bold text-[var(--color-primary)]">0.8–0.9</td><td class="p-4">Key product pages, main category pages, landing pages</td></tr>
+                <tr class="border-t border-[var(--color-border)]"><td class="p-4 font-mono font-bold text-[var(--color-primary)]">0.5–0.7</td><td class="p-4">Blog posts, standard content pages, sub-categories</td></tr>
+                <tr class="border-t border-[var(--color-border)]"><td class="p-4 font-mono font-bold text-[var(--color-primary)]">0.1–0.4</td><td class="p-4">Archives, old content, tag pages, utility pages</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="text-[var(--color-muted-foreground)]">A common mistake is setting everything to 1.0. This tells search engines nothing useful — if everything is top priority, nothing is. Reserve high values for pages that drive business value and conversions.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Using Changefreq Correctly</h2>
+          <p class="text-[var(--color-muted-foreground)]">The <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-sm font-mono">&lt;changefreq&gt;</code> tag hints at how often a page is likely to change. Accepted values are: <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-sm font-mono">always</code>, <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-sm font-mono">hourly</code>, <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-sm font-mono">daily</code>, <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-sm font-mono">weekly</code>, <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-sm font-mono">monthly</code>, <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-sm font-mono">yearly</code>, <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-sm font-mono">never</code>.</p>
+
+          <div class="my-6 rounded-xl border border-[var(--color-border)] overflow-hidden">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-[var(--color-secondary)]">
+                  <th class="text-left p-4 font-semibold text-[var(--color-foreground)]">Value</th>
+                  <th class="text-left p-4 font-semibold text-[var(--color-foreground)]">Best For</th>
+                </tr>
+              </thead>
+              <tbody class="text-[var(--color-muted-foreground)]">
+                <tr class="border-t border-[var(--color-border)]"><td class="p-4 font-mono">daily</td><td class="p-4">Blog indexes, news sections, product feeds</td></tr>
+                <tr class="border-t border-[var(--color-border)]"><td class="p-4 font-mono">weekly</td><td class="p-4">Blog posts, product pages, service pages</td></tr>
+                <tr class="border-t border-[var(--color-border)]"><td class="p-4 font-mono">monthly</td><td class="p-4">Documentation, about pages, team pages</td></tr>
+                <tr class="border-t border-[var(--color-border)]"><td class="p-4 font-mono">yearly</td><td class="p-4">Legal pages, terms, static content</td></tr>
+                <tr class="border-t border-[var(--color-border)]"><td class="p-4 font-mono">never</td><td class="p-4">Archived content that won't change</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="text-[var(--color-muted-foreground)]">Google has stated that they largely ignore changefreq, but Bing still considers it. Being honest with these values helps Bing crawl your site more efficiently. Use <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-sm font-mono">&lt;lastmod&gt;</code> as your primary signal — it carries more weight than changefreq.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Handling Sitemaps with Over 50,000 URLs</h2>
+          <p class="text-[var(--color-muted-foreground)]">The sitemap protocol limits a single sitemap to 50,000 URLs and 50MB uncompressed. If your site exceeds this, use a <strong>sitemap index file</strong>:</p>
+          <div class="my-4 rounded-lg bg-[var(--color-secondary)] p-4 text-sm font-mono overflow-x-auto text-[var(--color-muted-foreground)]">
+            <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
+  &lt;sitemap&gt;
+    &lt;loc&gt;https://yoursite.com/sitemap-pages.xml&lt;/loc&gt;
+    &lt;lastmod&gt;2025-01-15&lt;/lastmod&gt;
+  &lt;/sitemap&gt;
+  &lt;sitemap&gt;
+    &lt;loc&gt;https://yoursite.com/sitemap-blog.xml&lt;/loc&gt;
+    &lt;lastmod&gt;2025-01-14&lt;/lastmod&gt;
+  &lt;/sitemap&gt;
+&lt;/sitemapindex&gt;</pre>
+          </div>
+          <p class="text-[var(--color-muted-foreground)]">Split by content type (pages, blog posts, products) for better organization and faster crawl processing.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Common Sitemap Mistakes to Avoid</h2>
+          <div class="space-y-4">
+            <div class="rounded-xl border border-destructive/20 bg-destructive/5 p-5">
+              <h3 class="font-semibold text-destructive mb-1">Including noindex pages</h3>
+              <p class="text-sm text-[var(--color-muted-foreground)]">Pages marked with <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-xs font-mono">&lt;meta name="robots" content="noindex"&gt;</code> send conflicting signals when listed in your sitemap. Remove them — you're telling Google to both crawl and ignore them.</p>
+            </div>
+            <div class="rounded-xl border border-destructive/20 bg-destructive/5 p-5">
+              <h3 class="font-semibold text-destructive mb-1">Listing redirect URLs</h3>
+              <p class="text-sm text-[var(--color-muted-foreground)]">Only include final destination URLs. Listing redirect chains wastes crawl budget and confuses search engines about which URL to index.</p>
+            </div>
+            <div class="rounded-xl border border-destructive/20 bg-destructive/5 p-5">
+              <h3 class="font-semibold text-destructive mb-1">Stale sitemaps</h3>
+              <p class="text-sm text-[var(--color-muted-foreground)]">An outdated sitemap erodes trust. If Google repeatedly finds <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-xs font-mono">&lt;lastmod&gt;</code> dates that don't match actual changes, it may crawl your sitemap less frequently.</p>
+            </div>
+            <div class="rounded-xl border border-destructive/20 bg-destructive/5 p-5">
+              <h3 class="font-semibold text-destructive mb-1">Setting all priorities to 1.0</h3>
+              <p class="text-sm text-[var(--color-muted-foreground)]">This is effectively the same as not providing priority at all. Use a realistic distribution to help search engines understand what matters most.</p>
+            </div>
+            <div class="rounded-xl border border-destructive/20 bg-destructive/5 p-5">
+              <h3 class="font-semibold text-destructive mb-1">Including non-canonical URLs</h3>
+              <p class="text-sm text-[var(--color-muted-foreground)]">If a page has a canonical tag pointing elsewhere, include only the canonical version. Duplicate URLs in your sitemap dilute signals and waste crawl budget.</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="mt-12 p-8 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 text-center">
+          <h2 class="text-2xl font-bold mb-3">Generate an Optimized Sitemap Now</h2>
+          <p class="text-[var(--color-muted-foreground)] mb-6">Our tool automatically detects SEO issues and generates best-practice sitemaps.</p>
+          <a href="/tools/sitemap" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-primary)] text-white font-semibold hover:opacity-90 transition-opacity">
+            Generate Your Sitemap
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 text-sm">
+          <a href="/guide/how-to-create-sitemap" class="text-[var(--color-primary)] hover:underline">&larr; How to Create a Sitemap</a>
+          <a href="/guide/sitemap-faq" class="text-[var(--color-primary)] hover:underline">Sitemap Generator FAQ &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="border-t border-[var(--color-border)]/50 px-6 py-8">
+      <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[var(--color-muted-foreground)]">
+        <span>&copy; 2025 AI Sitemap Generator</span>
+        <span>Built with Astro + Cloudflare</span>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>

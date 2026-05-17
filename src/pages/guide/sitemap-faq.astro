@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Sitemap Generator FAQ — Common Questions About XML Sitemaps';
+const description = 'Frequently asked questions about XML sitemaps: what they are, how often to update, how to submit to Google, BYOK AI features, and more.';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an XML sitemap?",
+      "acceptedAnswer": { "@type": "Answer", "text": "An XML sitemap is a file that lists all the pages on your website in a structured format that search engines can read. It helps Google, Bing, and other search engines discover and index your content more efficiently." }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I update my sitemap?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Update your sitemap whenever you add, remove, or significantly change pages. For active blogs or e-commerce sites, this may be daily. For static sites, monthly or quarterly updates are sufficient. Our tool makes it easy to regenerate on demand." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my website need a sitemap?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Google recommends sitemaps for websites with more than a few pages, sites with rich media content, newly launched sites with few external links, and sites with archived or isolated content. Even small sites benefit from the improved crawl efficiency." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this sitemap generator really free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free with no sign-up required. All core features — crawling, sitemap generation, SEO issue detection, visual tree, statistics, and export — work at no cost. Optional AI features use your own API key (BYOK), so we never charge for AI usage." }
+    }
+  ]
+};
+---
+
+<BaseLayout {title} {description}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <div class="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
+    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-[var(--color-background)]/80 border-b border-[var(--color-border)]/60 px-4 sm:px-6 py-3.5">
+      <div class="max-w-4xl mx-auto flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2 text-lg font-bold text-[var(--color-foreground)]">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          <span class="hidden sm:inline">AI Sitemap Generator</span>
+          <span class="sm:hidden">SitemapGen</span>
+        </a>
+        <a href="/tools/sitemap" class="text-sm font-medium bg-[var(--color-primary)] text-white px-4 py-1.5 rounded-lg hover:opacity-90 transition-opacity">
+          Launch Tool
+        </a>
+      </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 py-16">
+      <header class="mb-12">
+        <div class="text-sm text-[var(--color-muted-foreground)] mb-4">
+          <a href="/" class="hover:text-[var(--color-foreground)] transition-colors">Home</a>
+          <span class="mx-2">/</span>
+          <a href="/guide/sitemap-faq" class="hover:text-[var(--color-foreground)] transition-colors">FAQ</a>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold leading-tight mb-4">Sitemap Generator FAQ</h1>
+        <p class="text-lg text-[var(--color-muted-foreground)]">Common questions about XML sitemaps, our free generator, and how to get the most from your SEO sitemap tool.</p>
+      </header>
+
+      <div class="prose-container space-y-4 text-[var(--color-foreground)] leading-relaxed">
+        <details class="group rounded-xl border border-[var(--color-border)] p-5 hover:border-[var(--color-primary)]/30 transition-colors" open>
+          <summary class="cursor-pointer font-semibold text-[var(--color-foreground)] list-none flex items-center justify-between">
+            What is an XML sitemap?
+            <svg class="w-5 h-5 text-[var(--color-muted-foreground)] group-open:rotate-180 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="mt-4 text-[var(--color-muted-foreground)]">An XML sitemap is a file that lists all the pages on your website in a structured format that search engines can read. It follows the <a href="https://www.sitemaps.org/protocol.html" class="text-[var(--color-primary)] hover:underline">sitemaps.org protocol</a> and includes details like when each page was last modified, how often it changes, and its relative importance. This helps Google, Bing, and other search engines discover and index your content more efficiently.</p>
+        </details>
+
+        <details class="group rounded-xl border border-[var(--color-border)] p-5 hover:border-[var(--color-primary)]/30 transition-colors">
+          <summary class="cursor-pointer font-semibold text-[var(--color-foreground)] list-none flex items-center justify-between">
+            How often should I update my sitemap?
+            <svg class="w-5 h-5 text-[var(--color-muted-foreground)] group-open:rotate-180 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="mt-4 text-[var(--color-muted-foreground)]">You should update your sitemap whenever you add, remove, or significantly change pages on your website. For active blogs or e-commerce sites with daily changes, consider regenerating your sitemap daily or using a dynamic sitemap generator. For relatively static sites, monthly or quarterly updates are usually sufficient. Our free sitemap generator makes it easy to regenerate on demand — just enter your URL and download.</p>
+        </details>
+
+        <details class="group rounded-xl border border-[var(--color-border)] p-5 hover:border-[var(--color-primary)]/30 transition-colors">
+          <summary class="cursor-pointer font-semibold text-[var(--color-foreground)] list-none flex items-center justify-between">
+            Does my website really need a sitemap?
+            <svg class="w-5 h-5 text-[var(--color-muted-foreground)] group-open:rotate-180 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="mt-4 text-[var(--color-muted-foreground)]">Google recommends sitemaps for: websites with more than a few hundred pages, newly launched sites with few external backlinks, sites with rich media content (video, images), and sites with archived or isolated content not well-linked internally. Even small sites benefit from the improved crawl efficiency and faster indexation of new content. If Google can discover all your pages easily through navigation alone, a sitemap is less critical — but it still provides useful signals like last modification dates.</p>
+        </details>
+
+        <details class="group rounded-xl border border-[var(--color-border)] p-5 hover:border-[var(--color-primary)]/30 transition-colors">
+          <summary class="cursor-pointer font-semibold text-[var(--color-foreground)] list-none flex items-center justify-between">
+            What is the difference between XML and HTML sitemaps?
+            <svg class="w-5 h-5 text-[var(--color-muted-foreground)] group-open:rotate-180 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="mt-4 text-[var(--color-muted-foreground)]">An XML sitemap is designed for search engine bots — it's a structured file (sitemap.xml) that machines parse. An HTML sitemap is a regular web page visible to human visitors that lists links to your pages for navigation purposes. Both are useful, but XML sitemaps are what you submit to Google Search Console for SEO benefits. This tool generates XML sitemaps.</p>
+        </details>
+
+        <details class="group rounded-xl border border-[var(--color-border)] p-5 hover:border-[var(--color-primary)]/30 transition-colors">
+          <summary class="cursor-pointer font-semibold text-[var(--color-foreground)] list-none flex items-center justify-between">
+            Which pages should I exclude from my sitemap?
+            <svg class="w-5 h-5 text-[var(--color-muted-foreground)] group-open:rotate-180 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="mt-4 text-[var(--color-muted-foreground)]">Exclude pages with <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-xs font-mono">noindex</code> directives, non-canonical URLs (pages with rel=canonical pointing elsewhere), redirect URLs (only include final destinations), pages behind authentication, internal search results, and paginated pages beyond the main set. Including pages you don't want indexed wastes crawl budget and sends conflicting signals.</p>
+        </details>
+
+        <details class="group rounded-xl border border-[var(--color-border)] p-5 hover:border-[var(--color-primary)]/30 transition-colors">
+          <summary class="cursor-pointer font-semibold text-[var(--color-foreground)] list-none flex items-center justify-between">
+            How do I submit my sitemap to Google?
+            <svg class="w-5 h-5 text-[var(--color-muted-foreground)] group-open:rotate-180 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="mt-4 text-[var(--color-muted-foreground)]">
+            <p>There are two ways to submit your sitemap to Google:</p>
+            <ol class="mt-3 space-y-2 list-decimal list-inside">
+              <li><strong>Google Search Console</strong> — Verify your site, go to Sitemaps, and enter your sitemap URL.</li>
+              <li><strong>robots.txt</strong> — Add <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-xs font-mono">Sitemap: https://yoursite.com/sitemap.xml</code> to your robots.txt file.</li>
+            </ol>
+            <p class="mt-3">Using both methods is recommended. Search Console gives you reporting on indexation status and any errors Google encounters.</p>
+          </div>
+        </details>
+
+        <details class="group rounded-xl border border-[var(--color-border)] p-5 hover:border-[var(--color-primary)]/30 transition-colors">
+          <summary class="cursor-pointer font-semibold text-[var(--color-foreground)] list-none flex items-center justify-between">
+            What are the AI features and how does BYOK work?
+            <svg class="w-5 h-5 text-[var(--color-muted-foreground)] group-open:rotate-180 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="mt-4 text-[var(--color-muted-foreground)]">Our AI sitemap generator offers optional smart suggestions powered by your own API key (Bring Your Own Key). When configured, AI can suggest optimal priority values for each URL, recommend changefreq settings based on page type, identify content gaps compared to competitors, and provide URL structure optimization tips. It supports OpenAI-compatible providers (including DeepSeek, OpenRouter, and others), Anthropic Claude, and Google Gemini. Your API key is encrypted and stored locally — we never see or store it on our servers. All core features work perfectly without any AI key.</p>
+        </details>
+
+        <details class="group rounded-xl border border-[var(--color-border)] p-5 hover:border-[var(--color-primary)]/30 transition-colors">
+          <summary class="cursor-pointer font-semibold text-[var(--color-foreground)] list-none flex items-center justify-between">
+            Is this tool really free forever?
+            <svg class="w-5 h-5 text-[var(--color-muted-foreground)] group-open:rotate-180 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="mt-4 text-[var(--color-muted-foreground)]">Yes. All core features — website crawling, sitemap.xml generation, SEO issue detection, visual site tree, statistics dashboard, and export — are completely free with no sign-up required. The tool is open source and runs on Cloudflare's generous free tier. The optional AI features use your own API key, so we have zero AI costs to pass on. There are no hidden fees, no usage limits on the free tier, and no plans to change this.</p>
+        </details>
+
+        <details class="group rounded-xl border border-[var(--color-border)] p-5 hover:border-[var(--color-primary)]/30 transition-colors">
+          <summary class="cursor-pointer font-semibold text-[var(--color-foreground)] list-none flex items-center justify-between">
+            What crawl depth should I use?
+            <svg class="w-5 h-5 text-[var(--color-muted-foreground)] group-open:rotate-180 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="mt-4 text-[var(--color-muted-foreground)]">Depth determines how many link-following hops the crawler makes from the starting URL. Depth 1 only discovers pages directly linked from the homepage. Depth 3 is the default and works well for most small-to-medium sites. Use depth 4-5 for large sites with deep content hierarchies. Higher depth takes longer but discovers more pages. Start with 3 and increase if the results seem incomplete.</p>
+        </details>
+
+        <details class="group rounded-xl border border-[var(--color-border)] p-5 hover:border-[var(--color-primary)]/30 transition-colors">
+          <summary class="cursor-pointer font-semibold text-[var(--color-foreground)] list-none flex items-center justify-between">
+            What SEO issues does the tool detect?
+            <svg class="w-5 h-5 text-[var(--color-muted-foreground)] group-open:rotate-180 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="mt-4 text-[var(--color-muted-foreground)]">
+            <p>The SEO analyzer checks for:</p>
+            <ul class="mt-2 space-y-1 list-disc list-inside">
+              <li>Broken links (4xx and 5xx status codes)</li>
+              <li>Missing or empty title tags</li>
+              <li>Missing meta descriptions</li>
+              <li>Duplicate page titles</li>
+              <li>Orphan pages (no internal links pointing to them)</li>
+              <li>Pages blocked by noindex directives</li>
+              <li>Redirect chains</li>
+              <li>Missing H1 headings</li>
+            </ul>
+            <p class="mt-2">Each issue is categorized by severity (error, warning, or info) so you can prioritize fixes.</p>
+          </div>
+        </details>
+
+        <div class="mt-12 p-8 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 text-center">
+          <h2 class="text-2xl font-bold mb-3">Still Have Questions?</h2>
+          <p class="text-[var(--color-muted-foreground)] mb-6">Try the tool and see for yourself — it's free and takes under a minute.</p>
+          <a href="/tools/sitemap" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-primary)] text-white font-semibold hover:opacity-90 transition-opacity">
+            Generate Your Sitemap
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 text-sm">
+          <a href="/guide/how-to-create-sitemap" class="text-[var(--color-primary)] hover:underline">&larr; How to Create a Sitemap</a>
+          <a href="/compare/sitemap-generator-alternatives" class="text-[var(--color-primary)] hover:underline">Compare Sitemap Tools &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="border-t border-[var(--color-border)]/50 px-6 py-8">
+      <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[var(--color-muted-foreground)]">
+        <span>&copy; 2025 AI Sitemap Generator</span>
+        <span>Built with Astro + Cloudflare</span>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>

@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'How to Create a Sitemap for Your Website — Free XML Sitemap Generator Guide';
+const description = 'Learn how to create a sitemap.xml for your website. Step-by-step guide covering XML vs HTML sitemaps, Google/Bing submission, and best practices for SEO.';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Create a Sitemap for Your Website",
+  "description": description,
+  "author": { "@type": "Organization", "name": "AI Sitemap Generator" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Sitemap Generator",
+    "logo": { "@type": "ImageObject", "url": "https://ai-sitemap-generator.pages.dev/favicon.svg" }
+  },
+  "datePublished": "2025-01-15",
+  "dateModified": "2025-05-17",
+  "mainEntityOfPage": "https://ai-sitemap-generator.pages.dev/guide/how-to-create-sitemap"
+};
+---
+
+<BaseLayout {title} {description}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <div class="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
+    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-[var(--color-background)]/80 border-b border-[var(--color-border)]/60 px-4 sm:px-6 py-3.5">
+      <div class="max-w-4xl mx-auto flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2 text-lg font-bold text-[var(--color-foreground)]">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          <span class="hidden sm:inline">AI Sitemap Generator</span>
+          <span class="sm:hidden">SitemapGen</span>
+        </a>
+        <a href="/tools/sitemap" class="text-sm font-medium bg-[var(--color-primary)] text-white px-4 py-1.5 rounded-lg hover:opacity-90 transition-opacity">
+          Launch Tool
+        </a>
+      </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 py-16">
+      <header class="mb-12">
+        <div class="text-sm text-[var(--color-muted-foreground)] mb-4">
+          <a href="/" class="hover:text-[var(--color-foreground)] transition-colors">Home</a>
+          <span class="mx-2">/</span>
+          <a href="/guide/how-to-create-sitemap" class="hover:text-[var(--color-foreground)] transition-colors">Guide</a>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold leading-tight mb-4">How to Create a Sitemap for Your Website</h1>
+        <p class="text-lg text-[var(--color-muted-foreground)]">A complete guide to generating, optimizing, and submitting your XML sitemap for better search engine visibility.</p>
+      </header>
+
+      <div class="prose-container space-y-8 text-[var(--color-foreground)] leading-relaxed">
+        <section>
+          <h2 class="text-2xl font-bold mb-4 text-[var(--color-foreground)]">What Is a Sitemap?</h2>
+          <p class="text-[var(--color-muted-foreground)]">A sitemap is a file that lists all the pages on your website, helping search engines like Google and Bing discover and index your content. Think of it as a roadmap that tells crawlers which URLs exist, when they were last updated, and how important each page is relative to others.</p>
+          <p class="text-[var(--color-muted-foreground)] mt-4">For most websites, an XML sitemap is the standard format. Search engines can parse it automatically, and it follows a well-defined protocol supported by all major crawlers. Without a sitemap, search engines rely solely on following links — which means isolated or deeply nested pages may never get found.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4 text-[var(--color-foreground)]">XML vs HTML Sitemaps</h2>
+          <p class="text-[var(--color-muted-foreground)]">There are two main types of sitemaps, each serving a different purpose:</p>
+          <div class="my-6 rounded-xl border border-[var(--color-border)] overflow-hidden">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-[var(--color-secondary)]">
+                  <th class="text-left p-4 font-semibold text-[var(--color-foreground)]">Feature</th>
+                  <th class="text-left p-4 font-semibold text-[var(--color-foreground)]">XML Sitemap</th>
+                  <th class="text-left p-4 font-semibold text-[var(--color-foreground)]">HTML Sitemap</th>
+                </tr>
+              </thead>
+              <tbody class="text-[var(--color-muted-foreground)]">
+                <tr class="border-t border-[var(--color-border)]">
+                  <td class="p-4 font-medium">Audience</td>
+                  <td class="p-4">Search engine bots</td>
+                  <td class="p-4">Human visitors</td>
+                </tr>
+                <tr class="border-t border-[var(--color-border)]">
+                  <td class="p-4 font-medium">Format</td>
+                  <td class="p-4">Structured XML</td>
+                  <td class="p-4">Web page with links</td>
+                </tr>
+                <tr class="border-t border-[var(--color-border)]">
+                  <td class="p-4 font-medium">Purpose</td>
+                  <td class="p-4">Indexation signals</td>
+                  <td class="p-4">Navigation aid</td>
+                </tr>
+                <tr class="border-t border-[var(--color-border)]">
+                  <td class="p-4 font-medium">Required?</td>
+                  <td class="p-4">Recommended for SEO</td>
+                  <td class="p-4">Optional but helpful</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-[var(--color-muted-foreground)]">For SEO purposes, an XML sitemap is essential. It communicates directly with search engine crawlers and supports attributes like <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-sm font-mono">&lt;lastmod&gt;</code>, <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-sm font-mono">&lt;changefreq&gt;</code>, and <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-sm font-mono">&lt;priority&gt;</code>.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4 text-[var(--color-foreground)]">Why You Need a Sitemap</h2>
+          <ul class="space-y-3 text-[var(--color-muted-foreground)]">
+            <li class="flex items-start gap-3">
+              <span class="text-[var(--color-primary)] mt-1 shrink-0">&#10003;</span>
+              <span><strong class="text-[var(--color-foreground)]">Faster indexing</strong> — New pages get discovered quickly instead of waiting for crawlers to find them through internal links.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[var(--color-primary)] mt-1 shrink-0">&#10003;</span>
+              <span><strong class="text-[var(--color-foreground)]">Better coverage</strong> — Orphan pages, deep content, and dynamically generated URLs all get listed.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[var(--color-primary)] mt-1 shrink-0">&#10003;</span>
+              <span><strong class="text-[var(--color-foreground)]">Crawl budget optimization</strong> — Search engines allocate limited resources per site. A sitemap helps them prioritize.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[var(--color-primary)] mt-1 shrink-0">&#10003;</span>
+              <span><strong class="text-[var(--color-foreground)]">Multi-media support</strong> — Sitemaps can include video and image metadata for rich results.</span>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4 text-[var(--color-foreground)]">How to Generate a Sitemap with This Tool</h2>
+          <p class="text-[var(--color-muted-foreground)]">Our free sitemap generator makes the process simple — no sign-up or technical knowledge required:</p>
+          <ol class="space-y-4 mt-4 text-[var(--color-muted-foreground)]">
+            <li class="flex items-start gap-3">
+              <span class="shrink-0 w-7 h-7 rounded-full bg-[var(--color-primary)] text-white text-sm font-bold flex items-center justify-center">1</span>
+              <span><strong class="text-[var(--color-foreground)]">Enter your URL</strong> — Go to <a href="/tools/sitemap" class="text-[var(--color-primary)] hover:underline">the tool page</a> and paste your website address. Set the crawl depth (1-5 levels).</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="shrink-0 w-7 h-7 rounded-full bg-[var(--color-primary)] text-white text-sm font-bold flex items-center justify-center">2</span>
+              <span><strong class="text-[var(--color-foreground)]">Analyze</strong> — The crawler discovers all pages, checks status codes, extracts SEO metadata, and detects issues like broken links and missing titles.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="shrink-0 w-7 h-7 rounded-full bg-[var(--color-primary)] text-white text-sm font-bold flex items-center justify-center">3</span>
+              <span><strong class="text-[var(--color-foreground)]">Download</strong> — Get your validated sitemap.xml file, copy it to clipboard, or export the full crawl report as JSON.</span>
+            </li>
+          </ol>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4 text-[var(--color-foreground)]">Submitting Your Sitemap to Google and Bing</h2>
+          <p class="text-[var(--color-muted-foreground)]">Once you have your sitemap.xml, submit it to the major search engines:</p>
+          <div class="space-y-4 mt-4">
+            <div class="rounded-xl border border-[var(--color-border)] p-5">
+              <h3 class="font-semibold text-[var(--color-foreground)] mb-2">Google Search Console</h3>
+              <ol class="text-sm text-[var(--color-muted-foreground)] space-y-1.5 list-decimal list-inside">
+                <li>Go to <strong>search.google.com/search-console</strong></li>
+                <li>Verify your website ownership</li>
+                <li>Navigate to <strong>Sitemaps</strong> in the left sidebar</li>
+                <li>Enter your sitemap URL (e.g., <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-xs font-mono">https://yoursite.com/sitemap.xml</code>)</li>
+                <li>Click Submit</li>
+              </ol>
+            </div>
+            <div class="rounded-xl border border-[var(--color-border)] p-5">
+              <h3 class="font-semibold text-[var(--color-foreground)] mb-2">Bing Webmaster Tools</h3>
+              <ol class="text-sm text-[var(--color-muted-foreground)] space-y-1.5 list-decimal list-inside">
+                <li>Go to <strong>bing.com/webmasters</strong></li>
+                <li>Add and verify your site</li>
+                <li>Go to <strong>Sitemaps</strong> and submit your URL</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4 text-[var(--color-foreground)]">Sitemap Best Practices</h2>
+          <ul class="space-y-3 text-[var(--color-muted-foreground)]">
+            <li class="flex items-start gap-3">
+              <span class="text-[var(--color-primary)] mt-1 shrink-0">&#8226;</span>
+              <span>Place your sitemap at the root: <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-sm font-mono">yoursite.com/sitemap.xml</code></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[var(--color-primary)] mt-1 shrink-0">&#8226;</span>
+              <span>Reference it in <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-sm font-mono">robots.txt</code> with <code class="bg-[var(--color-secondary)] px-1.5 py-0.5 rounded text-sm font-mono">Sitemap: https://yoursite.com/sitemap.xml</code></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[var(--color-primary)] mt-1 shrink-0">&#8226;</span>
+              <span>Keep it under 50,000 URLs and 50MB uncompressed. If larger, split into a sitemap index.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[var(--color-primary)] mt-1 shrink-0">&#8226;</span>
+              <span>Only include canonical URLs — avoid duplicates, redirects, and pages blocked by noindex.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[var(--color-primary)] mt-1 shrink-0">&#8226;</span>
+              <span>Update your sitemap whenever you add or remove significant pages.</span>
+            </li>
+          </ul>
+        </section>
+
+        <div class="mt-12 p-8 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 text-center">
+          <h2 class="text-2xl font-bold mb-3">Ready to Create Your Sitemap?</h2>
+          <p class="text-[var(--color-muted-foreground)] mb-6">Generate a valid, SEO-optimized sitemap.xml in under a minute.</p>
+          <a href="/tools/sitemap" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-primary)] text-white font-semibold hover:opacity-90 transition-opacity">
+            Generate Your Sitemap
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 text-sm">
+          <a href="/guide/sitemap-best-practices" class="text-[var(--color-primary)] hover:underline">Sitemap Best Practices for SEO &rarr;</a>
+          <a href="/guide/sitemap-faq" class="text-[var(--color-primary)] hover:underline">Sitemap Generator FAQ &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="border-t border-[var(--color-border)]/50 px-6 py-8">
+      <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[var(--color-muted-foreground)]">
+        <span>&copy; 2025 AI Sitemap Generator</span>
+        <span>Built with Astro + Cloudflare</span>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>
