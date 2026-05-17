@@ -1,0 +1,80 @@
+/goal SEO + Monetization overhaul — fix README, add content pages, add conversion paths. Deploy + push to GitHub.
+
+## TASK 1: Rewrite README.md (CRITICAL)
+Current README is Astro default template ("Astro Starter Kit: Minimal"). Replace entirely with professional README:
+
+**Sections required (write in English for international SEO):**
+1. **Hero**: Project name + "Free AI-powered sitemap generator" + badges (Cloudflare/Astro/MIT License)
+2. **Screenshot placeholder**: `![Screenshot](public/og-image.png)` comment
+3. **Features table** with checkmarks:
+   - Free XML Sitemap Generator (no sign-up)
+   - Smart Website Crawling (depth 1-5)
+   - SEO Issue Detection (broken links, missing titles, orphans)
+   - Visual Site Tree (color-coded status)
+   - Statistics Dashboard
+   - Export (XML/JSON/clipboard)
+   - AI Insights (optional BYOK — OpenAI/Anthropic/Google compatible)
+4. **How It Works**: 3 steps (Enter URL → Analyze → Download)
+5. **Tech Stack**: Astro 5, React Islands, TailwindCSS 4, Cloudflare Workers/Hono, D1/KV/R2
+6. **BYOK Section**: Explain bring-your-own-key model
+7. **Getting Started**: Live demo URL, clone+run instructions, deploy command
+8. **License**: MIT
+9. Naturally embed keywords: "free sitemap generator", "XML sitemap generator online", "SEO sitemap tool", "no signup"
+
+## TASK 2: Create 4 SEO Content Pages
+
+All pages must use BaseLayout.astro, match dark theme, be mobile-responsive (px-4 sm:px-6), have internal links to /tools/sitemap, and include page-specific meta descriptions.
+
+### Page A: `/guide/how-to-create-sitemap.astro`
+Title: "How to Create a Sitemap for Your Website"
+Target: "how to create a sitemap"
+Content (~800 words): What is a sitemap, why you need one, XML vs HTML types, step-by-step using this tool, how to submit to Google Search Console and Bing Webmaster Tools, best practices summary.
+Include Article structured data (JSON-LD).
+
+### Page B: `/guide/sitemap-best-practices.astro`  
+Title: "Sitemap Best Practices for SEO in 2025"
+Target: "sitemap best practices SEO"
+Content (~700 words): Priority values guide, changefreq recommendations, handling >50K URLs, common mistakes (noindex pages, redirects, https), sitemap index files.
+
+### Page C: `/guide/sitemap-faq.astro`
+Title: "Sitemap Generator FAQ — Common Questions Answered"
+Target: "sitemap generator FAQ"
+Content (~800 words): 8-10 FAQs with detailed answers using `<details>/<summary>` elements:
+- What is an XML sitemap?
+- How often should I update my sitemap?
+- Does every website need a sitemap?
+- What's the difference between XML and HTML sitemaps?
+- Can I exclude pages from my sitemap?
+- How do I submit my sitemap to Google?
+- What is BYOK and why use it?
+- Is this really free forever?
+
+### Page D: `/compare/sitemap-generator-alternatives.astro`
+Title: "Best Free Sitemap Generator Tools — 2025 Comparison"
+Target: "best free sitemap generator"
+Content (~600 words): Feature comparison table of this tool vs Screaming Frog vs AIOSEO vs xml-sitemaps.com vs Google Search Console. Highlight our advantages: free, no signup, AI-powered, runs in browser.
+
+## TASK 3: Navigation Update
+In index.astro nav, add "Guide" link pointing to /guide/how-to-create-sitemap (hidden on xs, visible sm:inline).
+
+## TASK 4: Update public/sitemap.xml
+Add all 4 new page URLs to the sitemap.xml file. Should now list 6 URLs total.
+
+## TASK 5: Conversion/Monetization Elements
+A) In index.astro, after Features section, add a "Pro Features Coming Soon" card:
+- 3 locked features with lock icons: "Batch Domain Analysis", "Scheduled Monitoring", "API Access"
+- Email input: "Get notified when Pro launches" (UI only, no backend)
+- Style: rounded-xl border border-[var(--color-border)] card matching existing design
+
+B) In index.astro after CTA section, add GitHub star CTA:
+- "⭐ Star on GitHub — Open Source & Free Forever" with link to https://github.com/jerryjiao/ai-sitemap-generator
+
+C) In SitemapTool.tsx, after results area, add subtle banner:
+- "🙌 Found this useful? Star us on GitHub →" link to repo
+
+## Build & Deploy & Push
+1. npm run build (zero errors/warnings)
+2. npx wrangler pages deploy dist/ --project-name=ai-sitemap-generator
+3. git add -A && git commit -m "feat: SEO content pages + professional README + conversion paths" && git push origin main
+
+Done when all tasks complete, deploy succeeds, and push finishes.

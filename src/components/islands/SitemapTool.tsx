@@ -459,7 +459,7 @@ export default function SitemapTool() {
       {!loading && pages.length > 0 && (
         <div className="text-center py-4">
           <a
-            href="https://github.com/jerryjiao11/ai-sitemap-generator"
+            href="https://github.com/jerryjiao/ai-sitemap-generator"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors"

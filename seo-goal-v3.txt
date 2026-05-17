@@ -1,0 +1,42 @@
+/goal SEO + Monetization overhaul. Fix README, add 4 content pages, add conversion paths. Deploy + push to GitHub.
+
+## TASK 1: Rewrite README.md
+Replace Astro default template with professional README in English (for international SEO):
+1. Hero: name + "Free AI-powered sitemap generator" + badges (Cloudflare/Astro/MIT)
+2. Features table with checkmarks: Free/no-signup, Smart crawling(depth1-5), SEO issue detection, Visual site tree, Stats dashboard, Export(XML/JSON), AI insights(BYOK)
+3. How It Works: 3 steps (Enter URL → Analyze → Download)
+4. Tech Stack: Astro5, React Islands, TailwindCSS4, CF Workers/Hono, D1/KV/R2
+5. BYOK explanation section
+6. Getting Started: live demo URL, clone+run, deploy command
+7. License: MIT
+8. Embed keywords naturally: "free sitemap generator", "XML sitemap generator online", "SEO sitemap tool"
+
+## TASK 2: Create 4 SEO Content Pages
+All use BaseLayout.astro, dark theme, mobile-responsive, internal links to /tools/sitemap.
+
+### A: `/guide/how-to-create-sitemap.astro`
+"How to Create a Sitemap for Your Website" (~800 words). What is a sitemap, why need one, XML vs HTML, how to use this tool, submit to Google/Bing, best practices. Include Article JSON-LD schema.
+
+### B: `/guide/sitemap-best-practices.astro`  
+"Sitemap Best Practices for SEO" (~700 words). Priority values, changefreq, >50K URLs handling, common mistakes (noindex, redirects).
+
+### C: `/guide/sitemap-faq.astro`
+"Sitemap Generator FAQ" (~800 words). 8-10 FAQs using details/summary:
+What is XML sitemap? Update frequency? Need one? XML vs HTML? Exclude pages? Submit to Google? BYOK? Free forever?
+
+### D: `/compare/sitemap-generator-alternatives.astro`
+"Best Free Sitemap Generator — 2025 Comparison" (~600 words). Compare vs Screaming Frog/AIOSEO/xml-sitemaps.com/GSC. Table format. Highlight: free, no signup, AI-powered.
+
+## TASK 3: Nav + Sitemap Updates
+- Add "Guide" link in nav (sm:inline) pointing to /guide/how-to-create-sitemap
+- Update public/sitemap.xml to list all 6 URLs
+
+## TASK 4: Conversion Elements
+A) index.astro after Features: "Pro Coming Soon" card with 3 locked features + email input UI
+B) index.astro after CTA: GitHub star CTA banner
+C) SitemapTool.tsx after results: subtle "Star us on GitHub" link
+
+## Build & Deploy & Push
+npm run build (zero errors) → wrangler pages deploy dist/ --project-name=ai-sitemap-generator → git commit + push origin main
+
+Done when all tasks complete and deployed.
