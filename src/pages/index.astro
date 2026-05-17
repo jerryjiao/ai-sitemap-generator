@@ -218,7 +218,12 @@ const features = [
     <footer class="border-t border-[var(--color-border)]/50 px-6 py-8">
       <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[var(--color-muted-foreground)]">
         <span>&copy; 2025–2026 AI Sitemap Generator</span>
-        <span>Built with Astro + Cloudflare</span>
+        <div class="flex items-center gap-4">
+          <a href="/about" class="hover:text-[var(--color-foreground)] transition-colors">About</a>
+          <a href="/privacy" class="hover:text-[var(--color-foreground)] transition-colors">Privacy</a>
+          <a href="/terms" class="hover:text-[var(--color-foreground)] transition-colors">Terms</a>
+          <span>Built with Astro + Cloudflare</span>
+        </div>
       </div>
     </footer>
   </div>

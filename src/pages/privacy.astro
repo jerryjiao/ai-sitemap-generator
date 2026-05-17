@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Privacy Policy — AI Sitemap Generator';
+const description = 'Privacy Policy for AI Sitemap Generator. Learn how we handle your data: no tracking, no cookies, no accounts, and client-side processing.';
+---
+
+<BaseLayout {title} {description}>
+  <div class="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
+    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-[var(--color-background)]/80 border-b border-[var(--color-border)]/60 px-4 sm:px-6 py-3.5">
+      <div class="max-w-4xl mx-auto flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2 text-lg font-bold text-[var(--color-foreground)]">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          <span class="hidden sm:inline">AI Sitemap Generator</span>
+          <span class="sm:hidden">SitemapGen</span>
+        </a>
+        <a href="/tools/sitemap" class="text-sm font-medium bg-[var(--color-primary)] text-white px-4 py-1.5 rounded-lg hover:opacity-90 transition-opacity">
+          Launch Tool
+        </a>
+      </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 py-16">
+      <header class="mb-12">
+        <div class="text-sm text-[var(--color-muted-foreground)] mb-4">
+          <a href="/" class="hover:text-[var(--color-foreground)] transition-colors">Home</a>
+          <span class="mx-2">/</span>
+          <span>Privacy Policy</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold leading-tight mb-4">Privacy Policy</h1>
+        <p class="text-lg text-[var(--color-muted-foreground)]">Last updated: May 18, 2026</p>
+      </header>
+
+      <div class="prose-container space-y-8 text-[var(--color-foreground)] leading-relaxed">
+        <section>
+          <p class="text-[var(--color-muted-foreground)] text-lg">
+            At AI Sitemap Generator, we believe in privacy by design. Our tool is built so that your data stays where it belongs — with you.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">No Data Collection</h2>
+          <p class="text-[var(--color-muted-foreground)]">
+            We do not collect, store, or transmit any personal data. Here is what we <strong>don't</strong> do:
+          </p>
+          <ul class="mt-4 space-y-3 text-[var(--color-muted-foreground)]">
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 mt-1 shrink-0">✗</span>
+              <span>No user accounts or authentication — there is nothing to store</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 mt-1 shrink-0">✗</span>
+              <span>No cookies or local storage for tracking purposes</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 mt-1 shrink-0">✗</span>
+              <span>No analytics scripts (no Google Analytics, no third-party trackers)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 mt-1 shrink-0">✗</span>
+              <span>No server-side logging of crawled URLs or results</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 mt-1 shrink-0">✗</span>
+              <span>No advertising or data sharing with third parties</span>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">How the Tool Works (Client-Side)</h2>
+          <p class="text-[var(--color-muted-foreground)]">
+            When you enter a URL and click "Generate Sitemap", the crawling and analysis happens between your browser and the target website. The process works as follows:
+          </p>
+          <ol class="mt-4 space-y-3 list-decimal list-inside text-[var(--color-muted-foreground)]">
+            <li>You enter a URL in your browser</li>
+            <li>The request is sent to our Cloudflare Worker API which performs the crawl</li>
+            <li>The Worker fetches pages from the target website (not from us)</li>
+            <li>Results are returned to your browser and displayed</li>
+            <li>Crawl sessions are temporary and automatically purged</li>
+          </ol>
+          <p class="mt-4 text-[var(--color-muted-foreground)]">
+            We do not persist crawl data beyond the duration of the session needed to generate your sitemap.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">AI Features (BYOK)</h2>
+          <p class="text-[var(--color-muted-foreground)]">
+            Optional AI enhancement features use your own API key (Bring Your Own Key). Your API key is used exclusively to make requests to the AI provider you configure — it is never stored on our servers or transmitted to any party other than the AI provider you selected.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Cloudflare Infrastructure</h2>
+          <p class="text-[var(--color-muted-foreground)]">
+            Our site is hosted on Cloudflare Pages. Cloudflare may collect standard infrastructure-level metrics (request counts, error rates, bandwidth) for operating the service. This data is anonymous and aggregated — it cannot be used to identify individual users or their activities.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Third-Party Services</h2>
+          <p class="text-[var(--color-muted-foreground)]">
+            Our site does not use any third-party services that collect personal data. There are no analytics, advertising, or social media trackers.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Children's Privacy</h2>
+          <p class="text-[var(--color-muted-foreground)]">
+            Our service does not knowingly collect personal information from children under 13 years of age. Since we do not collect any personal information from any users, this policy applies equally to all age groups.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Changes to This Policy</h2>
+          <p class="text-[var(--color-muted-foreground)]">
+            If we change this privacy policy, we will update the "Last updated" date above. Given our no-data-collection architecture, material changes are unlikely. We encourage you to review this page periodically.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Contact</h2>
+          <p class="text-[var(--color-muted-foreground)]">
+            If you have questions about this Privacy Policy, please
+            <a href="https://github.com/jerryjiao/ai-sitemap-generator/issues" class="text-[var(--color-primary)] hover:underline">open an issue on GitHub</a>.
+          </p>
+        </section>
+      </div>
+    </article>
+
+    <footer class="border-t border-[var(--color-border)]/50 px-6 py-8">
+      <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[var(--color-muted-foreground)]">
+        <span>&copy; 2025–2026 AI Sitemap Generator</span>
+        <span>Built with Astro + Cloudflare</span>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>

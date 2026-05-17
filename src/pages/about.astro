@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'About — AI Sitemap Generator';
+const description = 'Learn about AI Sitemap Generator: a free, open-source SEO tool for crawling websites, generating sitemaps, and detecting SEO issues. Built with Astro and Cloudflare.';
+---
+
+<BaseLayout {title} {description}>
+  <div class="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
+    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-[var(--color-background)]/80 border-b border-[var(--color-border)]/60 px-4 sm:px-6 py-3.5">
+      <div class="max-w-4xl mx-auto flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2 text-lg font-bold text-[var(--color-foreground)]">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          <span class="hidden sm:inline">AI Sitemap Generator</span>
+          <span class="sm:hidden">SitemapGen</span>
+        </a>
+        <a href="/tools/sitemap" class="text-sm font-medium bg-[var(--color-primary)] text-white px-4 py-1.5 rounded-lg hover:opacity-90 transition-opacity">
+          Launch Tool
+        </a>
+      </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-6 py-16">
+      <header class="mb-12">
+        <div class="text-sm text-[var(--color-muted-foreground)] mb-4">
+          <a href="/" class="hover:text-[var(--color-foreground)] transition-colors">Home</a>
+          <span class="mx-2">/</span>
+          <span>About</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold leading-tight mb-4">About AI Sitemap Generator</h1>
+        <p class="text-lg text-[var(--color-muted-foreground)]">A free, open-source tool built for developers and site owners who care about SEO.</p>
+      </header>
+
+      <div class="prose-container space-y-8 text-[var(--color-foreground)] leading-relaxed">
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
+          <p class="text-[var(--color-muted-foreground)]">
+            We believe that essential SEO tools should be free and accessible to everyone. AI Sitemap Generator was created to provide a no-frills, powerful sitemap generation tool that doesn't require sign-ups, credit cards, or software installation.
+          </p>
+          <p class="text-[var(--color-muted-foreground)] mt-4">
+            Run entirely in your browser and powered by Cloudflare's global network, the tool crawls any website, generates valid XML sitemaps, detects common SEO issues, and visualizes your site structure — all at zero cost.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Features</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="rounded-xl border border-[var(--color-border)] p-5">
+              <h3 class="font-semibold mb-2">Smart Crawling</h3>
+              <p class="text-sm text-[var(--color-muted-foreground)]">Recursive discovery of all pages with configurable depth (1–5 levels).</p>
+            </div>
+            <div class="rounded-xl border border-[var(--color-border)] p-5">
+              <h3 class="font-semibold mb-2">Sitemap Generation</h3>
+              <p class="text-sm text-[var(--color-muted-foreground)]">Valid XML sitemaps with priority, changefreq, and lastmod attributes.</p>
+            </div>
+            <div class="rounded-xl border border-[var(--color-border)] p-5">
+              <h3 class="font-semibold mb-2">SEO Issue Detection</h3>
+              <p class="text-sm text-[var(--color-muted-foreground)]">Finds broken links, missing titles, duplicates, orphans, and more.</p>
+            </div>
+            <div class="rounded-xl border border-[var(--color-border)] p-5">
+              <h3 class="font-semibold mb-2">Visual Site Tree</h3>
+              <p class="text-sm text-[var(--color-muted-foreground)]">Interactive tree view with color-coded status indicators.</p>
+            </div>
+            <div class="rounded-xl border border-[var(--color-border)] p-5">
+              <h3 class="font-semibold mb-2">AI Enhancement (BYOK)</h3>
+              <p class="text-sm text-[var(--color-muted-foreground)]">Optional AI-powered suggestions using your own API key.</p>
+            </div>
+            <div class="rounded-xl border border-[var(--color-border)] p-5">
+              <h3 class="font-semibold mb-2">Statistics Dashboard</h3>
+              <p class="text-sm text-[var(--color-muted-foreground)]">Page counts, status distribution, depth analysis, and timing.</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Technology</h2>
+          <p class="text-[var(--color-muted-foreground)]">
+            Built with modern web technologies for speed and reliability:
+          </p>
+          <ul class="mt-4 space-y-2 text-[var(--color-muted-foreground)]">
+            <li class="flex items-center gap-2">
+              <span class="text-[var(--color-primary)]">▸</span>
+              <strong class="text-[var(--color-foreground)]">Astro 5</strong> — Static site generation for lightning-fast page loads
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[var(--color-primary)]">▸</span>
+              <strong class="text-[var(--color-foreground)]">React Islands</strong> — Interactive UI components with hydration on demand
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[var(--color-primary)]">▸</span>
+              <strong class="text-[var(--color-foreground)]">TailwindCSS 4</strong> — Utility-first styling with CSS variables for theming
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[var(--color-primary)]">▸</span>
+              <strong class="text-[var(--color-foreground)]">Cloudflare Pages</strong> — Global CDN deployment with zero-cost hosting
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[var(--color-primary)]">▸</span>
+              <strong class="text-[var(--color-foreground)]">Hono + Workers</strong> — Lightweight API backend for crawl operations
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Open Source</h2>
+          <p class="text-[var(--color-muted-foreground)]">
+            AI Sitemap Generator is open source software. You can review the code, report issues, contribute features, or self-host it on your own infrastructure.
+          </p>
+          <a
+            href="https://github.com/jerryjiao/ai-sitemap-generator"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 mt-4 px-5 py-2.5 rounded-xl bg-[var(--color-foreground)] text-[var(--color-background)] text-sm font-medium hover:opacity-90 transition-opacity"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            View on GitHub
+          </a>
+        </section>
+      </div>
+    </article>
+
+    <footer class="border-t border-[var(--color-border)]/50 px-6 py-8">
+      <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[var(--color-muted-foreground)]">
+        <span>&copy; 2025–2026 AI Sitemap Generator</span>
+        <span>Built with Astro + Cloudflare</span>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>
