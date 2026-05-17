@@ -312,9 +312,9 @@ export default function SitemapTool() {
                 aria-label="Website URL to analyze"
               />
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
-              <div className="flex items-center gap-2">
-                <label htmlFor="max-depth" className="text-sm text-muted-foreground whitespace-nowrap">
+            <div className="flex flex-col sm:flex-row gap-3 items-center">
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                <label htmlFor="max-depth" className="text-sm text-muted-foreground whitespace-nowrap leading-none">
                   Depth:
                 </label>
                 <div className="relative flex-1 sm:flex-none">
@@ -339,7 +339,7 @@ export default function SitemapTool() {
                 onClick={handleAnalyze}
                 disabled={loading}
                 size="lg"
-                className="h-12 px-6 bg-primary hover:bg-primary/90 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30 transition-all duration-200 w-full sm:w-auto"
+                className="h-12 px-6 bg-primary hover:bg-primary/90 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30 transition-all duration-200 w-full sm:w-auto cta-glow"
               >
                 {loading ? (
                   <>
