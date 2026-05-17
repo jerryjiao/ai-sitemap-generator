@@ -18,6 +18,8 @@ import {
   FileCode2,
   ArrowUpDown,
   Shield,
+  CircleHelp,
+  ChevronRight,
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -79,6 +81,8 @@ export default function SitemapTool() {
 
   // UI state
   const [copySuccess, setCopySuccess] = useState(false);
+  const [showDepthHelp, setShowDepthHelp] = useState(false);
+  const depthHelpRef = useRef<HTMLDivElement>(null);
 
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -101,6 +105,18 @@ export default function SitemapTool() {
       if (pollRef.current) clearInterval(pollRef.current);
     };
   }, []);
+
+  // Close depth help on click outside
+  useEffect(() => {
+    if (!showDepthHelp) return;
+    const handler = (e: MouseEvent) => {
+      if (depthHelpRef.current && !depthHelpRef.current.contains(e.target as Node)) {
+        setShowDepthHelp(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [showDepthHelp]);
 
   const pollCrawlStatus = useCallback((sid: string) => {
     let pollCount = 0;
@@ -311,11 +327,22 @@ export default function SitemapTool() {
                 className="font-mono text-base h-12"
                 aria-label="Website URL to analyze"
               />
+              <p className="text-xs text-muted-foreground/60 mt-1.5 pl-1">
+                Enter any public website URL (e.g., https://example.com)
+              </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 items-center">
               <div className="flex items-center gap-2 w-full sm:w-auto">
-                <label htmlFor="max-depth" className="text-sm text-muted-foreground whitespace-nowrap leading-none">
+                <label htmlFor="max-depth" className="text-sm text-muted-foreground whitespace-nowrap leading-none flex items-center gap-1.5">
                   Depth:
+                  <button
+                    type="button"
+                    onClick={() => setShowDepthHelp((v) => !v)}
+                    className="text-muted-foreground/60 hover:text-foreground transition-colors"
+                    aria-label="What is crawl depth?"
+                  >
+                    <CircleHelp className="w-3.5 h-3.5" />
+                  </button>
                 </label>
                 <div className="relative flex-1 sm:flex-none">
                   <Select
@@ -335,6 +362,29 @@ export default function SitemapTool() {
                   <ChevronDown className="absolute right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
                 </div>
               </div>
+              {showDepthHelp && (
+                <div
+                  ref={depthHelpRef}
+                  className="w-full sm:w-auto rounded-lg border border-border bg-secondary/80 backdrop-blur-sm p-4 text-sm space-y-2"
+                >
+                  <p className="text-foreground font-medium">
+                    Crawl Depth: How many levels of links to follow from your homepage.
+                  </p>
+                  <div className="space-y-1 text-muted-foreground text-xs">
+                    <p><span className="font-semibold text-foreground">Level 1</span> — Homepage only</p>
+                    <p><span className="font-semibold text-foreground">Level 2</span> — Homepage + all linked pages</p>
+                    <p><span className="font-semibold text-foreground">Level 3</span> — + pages linked from those <span className="text-indigo-400">(recommended for most sites)</span></p>
+                    <p><span className="font-semibold text-foreground">Level 4–5</span> — Deep crawl for large sites (may take longer)</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setShowDepthHelp(false)}
+                    className="text-xs text-muted-foreground hover:text-foreground transition-colors mt-1"
+                  >
+                    Got it
+                  </button>
+                </div>
+              )}
               <Button
                 onClick={handleAnalyze}
                 disabled={loading}
@@ -489,6 +539,36 @@ export default function SitemapTool() {
           />
         </CollapsibleContent>
       </Collapsible>
+
+      {/* Help Links */}
+      <div className="mt-6 text-center space-y-3">
+        <div className="flex items-center gap-3 max-w-xs mx-auto">
+          <div className="flex-1 h-px bg-border" />
+          <span className="text-xs text-muted-foreground/50">or</span>
+          <div className="flex-1 h-px bg-border" />
+        </div>
+        <div className="space-y-2">
+          <p className="text-sm text-muted-foreground/70 font-medium">Need Help?</p>
+          <div className="flex flex-col items-center gap-1.5">
+            <a href="/guide/how-to-create-sitemap" className="inline-flex items-center gap-1 text-sm text-muted-foreground/60 hover:text-foreground transition-colors">
+              <ChevronRight className="w-3.5 h-3.5" />
+              How to create a sitemap
+            </a>
+            <a href="/guide/sitemap-best-practices" className="inline-flex items-center gap-1 text-sm text-muted-foreground/60 hover:text-foreground transition-colors">
+              <ChevronRight className="w-3.5 h-3.5" />
+              Sitemap best practices
+            </a>
+            <a href="/guide/sitemap-faq" className="inline-flex items-center gap-1 text-sm text-muted-foreground/60 hover:text-foreground transition-colors">
+              <ChevronRight className="w-3.5 h-3.5" />
+              FAQ
+            </a>
+            <a href="/compare/sitemap-generator-alternatives" className="inline-flex items-center gap-1 text-sm text-muted-foreground/60 hover:text-foreground transition-colors">
+              <ChevronRight className="w-3.5 h-3.5" />
+              Compare tools
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
