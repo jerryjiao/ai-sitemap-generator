@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Logo from '../../components/Logo.astro';
+import SitemapTool from '../../components/islands/SitemapTool';
+---
+
+<BaseLayout title="AI Sitemap Generator - Analyze & Generate Sitemaps">
+  <main class="min-h-screen">
+    <!-- Tool page header with gradient -->
+    <div class="relative border-b border-[var(--color-border)]/50 px-4 sm:px-6 py-6">
+      <div class="absolute inset-0 bg-gradient-to-b from-indigo-500/3 to-transparent pointer-events-none"></div>
+      <div class="relative max-w-5xl mx-auto flex items-center gap-3">
+        <a href="/" class="flex items-center gap-2.5 text-lg font-bold text-[var(--color-foreground)] hover:opacity-80 transition-opacity">
+          <Logo size={24} />
+          <span class="hidden sm:inline">AI Sitemap Generator</span>
+        </a>
+        <div class="ml-auto flex items-center gap-3">
+          <a href="/" class="text-sm text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] transition-colors">
+            &larr; Home
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="px-4 sm:px-6 py-8">
+      <SitemapTool client:load />
+    </div>
+  </main>
+</BaseLayout>

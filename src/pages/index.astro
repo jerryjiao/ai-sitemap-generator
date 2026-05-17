@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Logo from '../components/Logo.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AI Sitemap Generator",
+  "description": "Free AI-powered sitemap generator. Crawl any website, detect SEO issues, and export optimized sitemap.xml files.",
+  "url": "https://ai-sitemap-generator.pages.dev/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "browserRequirements": "Requires JavaScript"
+};
+
+const features = [
+  {
+    title: 'Smart Crawling',
+    description: 'Recursively discovers all pages on your site. Follows internal links, respects depth limits, and handles redirects gracefully.',
+    icon: 'search',
+  },
+  {
+    title: 'Sitemap Generation',
+    description: 'Generates valid XML sitemaps with proper priority and changefreq values. Download or copy to clipboard instantly.',
+    icon: 'file',
+  },
+  {
+    title: 'SEO Issue Detection',
+    description: 'Finds broken links, missing titles, duplicate content, orphan pages, and other common SEO problems.',
+    icon: 'shield',
+  },
+  {
+    title: 'Visual Site Tree',
+    description: 'See your entire site structure at a glance. Pages organized by depth with color-coded status indicators.',
+    icon: 'tree',
+  },
+  {
+    title: 'Statistics Dashboard',
+    description: 'Comprehensive stats: page counts, status code distribution, depth analysis, and response time metrics.',
+    icon: 'chart',
+  },
+  {
+    title: 'AI Enhancement',
+    description: 'Optional AI-powered suggestions for priority, changefreq, and content gaps. Bring your own API key — no hidden costs.',
+    icon: 'sparkles',
+  },
+];
+---
+
+<BaseLayout>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <div class="min-h-screen flex flex-col">
+    <!-- Sticky Nav -->
+    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-[var(--color-background)]/80 border-b border-[var(--color-border)]/60 px-4 sm:px-6 py-3.5">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2.5 text-xl font-bold text-[var(--color-foreground)]">
+          <Logo size={28} />
+          <span class="hidden sm:inline">AI Sitemap Generator</span>
+          <span class="sm:hidden">SitemapGen</span>
+        </a>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="#features" class="hidden sm:inline text-sm text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] transition-colors px-2 sm:px-3 py-1.5">
+            Features
+          </a>
+          <a
+            href="#features"
+            class="hidden md:inline text-sm border border-[var(--color-border)] text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] hover:border-[var(--color-foreground)]/30 transition-colors px-2 sm:px-3.5 py-1.5 rounded-lg"
+          >
+            How It Works
+          </a>
+          <a
+            href="/tools/sitemap"
+            class="text-sm font-medium bg-[var(--color-primary)] text-white px-3 sm:px-4 py-1.5 rounded-lg hover:opacity-90 transition-opacity"
+          >
+            Launch Tool
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="flex-1">
+      <!-- Hero Section -->
+      <section class="relative py-24 md:py-32 px-6 overflow-hidden">
+        <!-- Gradient mesh background -->
+        <div class="absolute inset-0 pointer-events-none">
+          <div class="absolute top-0 left-1/4 w-96 h-96 bg-[var(--color-primary)]/8 rounded-full blur-3xl"></div>
+          <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-500/6 rounded-full blur-3xl"></div>
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-indigo-500/4 rounded-full blur-3xl"></div>
+        </div>
+        <!-- Subtle grid pattern -->
+        <div class="absolute inset-0 pointer-events-none opacity-[0.03]" style="background-image: radial-gradient(circle, var(--color-foreground) 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+        <div class="relative max-w-4xl mx-auto text-center">
+          <!-- Trust badges -->
+          <div class="inline-flex items-center gap-2 flex-wrap justify-center mb-8">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-xs font-medium">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Free Forever
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--color-secondary)] text-[var(--color-muted-foreground)] text-xs font-medium border border-[var(--color-border)]/50">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+              No Sign-up
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--color-secondary)] text-[var(--color-muted-foreground)] text-xs font-medium border border-[var(--color-border)]/50">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              Open Source
+            </span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
+            Generate Perfect<br />
+            <span class="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Sitemaps</span> with AI
+          </h1>
+          <p class="text-lg md:text-xl text-[var(--color-muted-foreground)] mb-10 max-w-2xl mx-auto leading-relaxed">
+            Crawl any website, detect SEO issues, visualize site structure, and export
+            optimized sitemap.xml files. Powered by AI insights (optional).
+          </p>
+          <div class="flex items-center justify-center gap-4">
+            <a
+              href="/tools/sitemap"
+              class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[var(--color-primary)] text-white font-semibold hover:opacity-90 transition-all duration-200 text-lg shadow-lg shadow-indigo-500/20"
+            >
+              Start Analyzing
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" class="py-20 px-6 border-t border-[var(--color-border)]/50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-3xl font-bold text-center text-[var(--color-foreground)] mb-4">
+            Everything You Need
+          </h2>
+          <p class="text-center text-[var(--color-muted-foreground)] mb-16 max-w-xl mx-auto">
+            A complete toolkit for sitemap generation and SEO analysis — all in one place.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {features.map((feature) => (
+              <div class="group p-6 rounded-xl bg-[var(--color-card)] border border-[var(--color-border)] hover:border-indigo-500/30 hover:scale-[1.02] transition-all duration-200 cursor-default">
+                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-500/10 to-purple-500/10 flex items-center justify-center mb-4 group-hover:from-indigo-500/15 group-hover:to-purple-500/15 transition-colors duration-200">
+                  {feature.icon === 'search' && (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                  )}
+                  {feature.icon === 'file' && (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                  )}
+                  {feature.icon === 'shield' && (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9.1 12 1.8 1.8 4-4"/></svg>
+                  )}
+                  {feature.icon === 'tree' && (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><line x1="12" y1="3" x2="12" y2="9"/><path d="M3 9h18v12H3z"/><path d="M9 9V6"/><path d="M15 9V6"/><path d="M6 21v-3"/><path d="M10 21v-3"/><path d="M14 21v-3"/><path d="M18 21v-3"/></svg>
+                  )}
+                  {feature.icon === 'chart' && (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                  )}
+                  {feature.icon === 'sparkles' && (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/></svg>
+                  )}
+                </div>
+                <h3 class="text-lg font-semibold text-[var(--color-foreground)] mb-2">{feature.title}</h3>
+                <p class="text-[var(--color-muted-foreground)] text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="py-20 px-6 border-t border-[var(--color-border)]/50">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl font-bold text-[var(--color-foreground)] mb-6">
+            Ready to Optimize Your Site?
+          </h2>
+          <p class="text-[var(--color-muted-foreground)] mb-8 text-lg">
+            No account needed. No credit card. Just enter a URL and go.
+          </p>
+          <a
+            href="/tools/sitemap"
+            class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[var(--color-primary)] text-white font-semibold hover:opacity-90 transition-all duration-200 text-lg shadow-lg shadow-indigo-500/20"
+          >
+            Generate Your Sitemap
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-[var(--color-border)]/50 px-6 py-8">
+      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[var(--color-muted-foreground)]">
+        <span>&copy; 2025 AI Sitemap Generator</span>
+        <span>Built with Astro + Cloudflare</span>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>

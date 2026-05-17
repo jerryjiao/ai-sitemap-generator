@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ai-sitemap-generator.pages.dev/sitemap.xml

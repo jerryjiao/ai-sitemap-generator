@@ -1,0 +1,16 @@
+name = "ai-sitemap-generator"
+compatibility_date = "2024-12-01"
+pages_build_output_dir = "./dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ai-sitemap-db"
+database_id = "87a5f76a-d2f2-4578-bbce-df46f64d071e"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "44dfc1e3b6f04de48a97418eaa0cd2fc"
+
+[[r2_buckets]]
+binding = "R2"
+bucket_name = "ai-sitemap-files"
